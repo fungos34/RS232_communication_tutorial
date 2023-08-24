@@ -5,5 +5,6 @@
 2. Emulate an RS232 "Pair" with ports 'COM14' and 'COM4' 
 TODO:
 write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
+(Run the tests with the command "python -m pytest")
 Extra: monitor all values for voltage, current and status of the device over an arbitrary time.
 Extra: setup the communication via asynchronous communication (python module 'asyncio')
