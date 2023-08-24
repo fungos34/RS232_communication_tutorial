@@ -2,11 +2,6 @@
 import serial
 from loguru import logger
 
-def set_port(port_name = 'COM4'):
-    """Open a serial port 'COM4'. Takes a port name as string. Returns the port object."""
-    port = serial.Serial(port_name)
-    logger.info(f'PORT {port_name} INITIALISED SUCCESSFULLY\n')
-    return port
 
 def formatting_current(value: int|float):
     """Formats a float current value to the format xxx.x according to BKP device manual. Returns the formatted number as a string."""
@@ -91,6 +86,11 @@ def set_output_off_command():
     return command
 
 
+def set_port(port_name = 'COM4'):
+    """Open a serial port 'COM4'. Takes a port name as string. Returns the port object."""
+    port = serial.Serial(port_name)
+    logger.info(f'PORT {port_name} INITIALISED SUCCESSFULLY\n')
+    return port
 
 def send_command(port: serial.Serial, command):
     """Sends command via RS232 to the BKP. 

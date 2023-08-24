@@ -3,6 +3,7 @@ import numpy as np
 from solutions.sync_solution import set_port,get_current_command,get_status_command,get_voltage_command,set_current_command,set_output_off_command,set_output_on_command,set_voltage_command,formatting_current,formatting_voltage,convert_string_to_binary,send_command
 import rs232_communication
 import time
+import serial
 
 def test_formatting_current():
     for i in [-12,1234.5678,123.4,0.0,100]:
@@ -39,6 +40,12 @@ def test_set_output_on_command():
 def test_set_output_off_command():
     assert rs232_communication.set_output_off_command() == set_output_off_command()
 
+def test_set_port(port = 'COM4'):
+    testing_port = serial.Serial(port)
+    testing_port_type = type(testing_port)
+    testing_port.close()
+    assert type(rs232_communication.set_port(port)) == testing_port_type
+
 def test_send_command():
     port = set_port()
     for i in ['CURR 100.2\r','CURR?\r','VOLT 23.99\r','VOLT?\r','OUT ON\r','STAT?\r','OUT OFF\r', 'STAT?\r']:
@@ -47,4 +54,4 @@ def test_send_command():
         assert rs232_communication.send_command(port, i.encode('ascii')) == aimed_response
 
 
-# run with "python -m pytest" #### "python -rP pytest"
+# run with "python -m pytest"

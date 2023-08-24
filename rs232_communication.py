@@ -1,11 +1,6 @@
 #FRAMEWORK WITH PREDEFINED FUNCTIONS FOR SYNCHRONOUS COMMUNICATION BKP.
 import serial
 
-
-def set_port(port_name):
-    """Open a serial port 'COM4'. Takes a port name as string. Returns the port object."""
-    pass
-
 def formatting_current(current):
     """Formats a float current value to the format xxx.x according to BKP device manual. Returns the formatted number as a string."""
     pass
@@ -44,6 +39,14 @@ def set_output_on_command():
 
 def set_output_off_command():
     """Returns a valid binary command for BKP to set the ouput to OFF."""
+    pass
+
+def set_port(port_name = 'COM4'):
+    """
+    Open a serial port like 'COM4'. 
+    :param port_name: port name as string. 
+    :returns: the port object.
+    """
     pass
 
 def send_command(port,command):
