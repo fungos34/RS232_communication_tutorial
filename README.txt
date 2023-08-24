@@ -1,5 +1,6 @@
-RS-232 communication tutorial on windows. 
+RS-232 communication tutorial on windows in Python 3.10.11:
 
+Setup Environment:
 1. download "32bit" 'Virtual Serial Ports Emulator (x32) 1.2.6.788'
           free download available here: https://eterlogic.com/Products.VSPE.html
           NOTE: The 64bit version is not for free
@@ -17,7 +18,8 @@ RS-232 communication tutorial on windows.
           Debug: If your device has already ports 'COM4' or 'COM14' choose other ports. 
           You have to change the called port within your script rs232_communication.py too. 
           Also the virtual device is trying to open 'COM14', change this part of the script virtual_bkp.py too if necessary.
-TODO:
+
+Problem Set:
 write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
 (Run the tests with the command "python -m pytest" in your terminal)
 Extra: write a functino to monitor all values for voltage, current and status of the device over an arbitrary time.
