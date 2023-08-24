@@ -1,3 +1,5 @@
+RS-232 communication tutorial on windows. 
+
 1. download "32bit" 'Virtual Serial Ports Emulator (x32) 1.2.6.788'
           free download available here: https://eterlogic.com/Products.VSPE.html
           NOTE: The 64bit version is not for free
