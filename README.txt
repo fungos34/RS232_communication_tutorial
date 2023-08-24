@@ -17,6 +17,7 @@
           Also the virtual device is trying to open 'COM14', change this part of the script virtual_bkp.py too if necessary.
 TODO:
 write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
-(Run the tests with the command "python -m pytest")
-Extra: monitor all values for voltage, current and status of the device over an arbitrary time.
+(Run the tests with the command "python -m pytest" in your terminal)
+Extra: write a functino to monitor all values for voltage, current and status of the device over an arbitrary time.
+Extra: wrap all your functionality in a self made class.
 Extra: setup the communication via asynchronous communication (python module 'asyncio')
