@@ -47,4 +47,4 @@ def test_send_command():
         assert rs232_communication.send_command(port, i.encode('ascii')) == aimed_response
 
 
-# run with "python -m pytest"
+# run with "python -m pytest" #### "python -rP pytest"

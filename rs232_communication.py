@@ -16,7 +16,6 @@ def formatting_voltage(voltage):
 
 def convert_string_to_binary(string):
     """Converts a string to its ASCII binary format. Returns the binary string."""
-    pass
 
 def set_current_command(current):
     """Takes an input current as a float or integer. Returns a valid binary command for BKP to set the current."""
