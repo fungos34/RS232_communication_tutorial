@@ -30,16 +30,14 @@ def test_set_voltage_command():
 def test_get_voltage_command():
     assert  rs232_communication.get_voltage_command() == get_voltage_command()
 
-
 def test_get_status_command():
     assert rs232_communication.get_status_command() == get_status_command()
 
-def test_set_output_off_command():
-    assert rs232_communication.set_output_off_command() == set_output_off_command()
-
 def test_set_output_on_command():
     assert rs232_communication.set_output_on_command() == set_output_on_command()
-
+    
+def test_set_output_off_command():
+    assert rs232_communication.set_output_off_command() == set_output_off_command()
 
 def test_send_command():
     port = set_port()
