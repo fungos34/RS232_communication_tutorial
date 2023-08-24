@@ -5,6 +5,11 @@ Setup Environment:
           free download available here: https://eterlogic.com/Products.VSPE.html
           NOTE: The 64bit version is not for free, just use the 32 bit version.
           ALTERNATIVELY: Install the SetupVSPE_32_1.3.6.970.zip 
+                    Consider the specific Licence conditions for this software package:
+                    "License grant. \f1\lang1044 "OLENA TER ETERLOGIC SOFTWARE"\f0\lang1049  grants Licensee a non-exclusive and non-transferable license to reproduce\f2\lang1033 , 
+                    \f0\lang1049 use \f2\lang1033 and redistribute \f0\lang1049 for any purposes the executable code version of the Product, 
+                    provided any copy must contain all of the original proprietary notices."
+                    You can find the full text licence within the SetupVSPE_32_1.3.6.970.zip file.
 2. Emulate an RS232 "Pair" with ports 'COM14' and 'COM4' 
           > Device > Create > select 'Pair' > 'Weiter' or 'Continue' > 
                     select Virtual Serial Port 1 'COM4'; 
