@@ -28,6 +28,8 @@ Setup Environment:
 Problem Set:
           write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
           (Run the tests with the command "python -m pytest" in your terminal)
+          run the pytest in terminal with the command "python -m pytest"
+          You supposed to pass all tests.
 Extra Problem: write a function to monitor all values for voltage, current and status of the device over an arbitrary time.
 Extra Problem: wrap all your functionality in a self made class.
 Extra Problem: setup the communication via asynchronous communication (python module 'asyncio')

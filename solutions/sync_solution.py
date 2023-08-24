@@ -98,7 +98,7 @@ def set_output_off_command():
 def set_port(port_name = 'COM4'):
     """Open a serial port 'COM4'. Takes a port name as string. Returns the port object."""
     port = serial.Serial(port_name)
-    logger.info(f'PORT {port_name} INITIALISED SUCCESSFULLY\n')
+    # logger.info(f'PORT {port_name} INITIALISED SUCCESSFULLY\n')
     print(f'PORT {port_name} INITIALISED SUCCESSFULLY\n')
     return port
 
