@@ -15,7 +15,7 @@ Setup Environment:
           This mimics the data cable between the virtual device and your script during testing and during communication trials. 
 3. Run the virtual_bkp.py file in a separate terminal window. 
           You are now able to communicate over port 'COM4' with 'COM14' as if they where real connected ports.
-          The virtual device listens to COM14 and responds according to 
+          The virtual device listens to COM14 and responds according to a real devices documentation.
           Debug: If your device has already ports 'COM4' or 'COM14' choose other ports. 
           You have to change the called port within your script rs232_communication.py too. 
           Also the virtual device is trying to open 'COM14', change this part of the script virtual_bkp.py too if necessary.
