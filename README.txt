@@ -3,6 +3,13 @@
           NOTE: The 64bit version is not for free
           ALTERNATIVELY: Install the SetupVSPE_32_1.3.6.970.zip 
 2. Emulate an RS232 "Pair" with ports 'COM14' and 'COM4' 
+          > Device > Create > select 'Pair' > 'Weiter' or 'Continue' > 
+                    select Virtual Serial Port 1 'COM4'; 
+                    select Virtual Serial Port 2 'COM14'
+                    unbox "Emulate Baudrate (optional)" if selected >
+                              select 'Fertigstellen' or 'Finish'.
+          You can now find two virtually connected, emulated serial ports in your system. 
+          This mimics the data cable between the virtual device and your script during testing. 
 TODO:
 write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
 (Run the tests with the command "python -m pytest")
