@@ -2,7 +2,6 @@
 import serial
 # from loguru import logger
 
-
 def formatting_current(value: int|float):
     """Formats a float current value to the format xxx.x according to BKP device manual. Returns the formatted number as a string."""
     if value > 999.9:
@@ -126,7 +125,7 @@ def send_command(port: serial.Serial, command):
     stripped_response = stripped_response.replace(b'\x13',b'')
     stripped_response = stripped_response.replace(b'\x11',b'')
     response = stripped_response.decode('ascii')
-    
+
     # logger.info(f'RECEIVING FROM {port.name} <<< "{response}" (RAW: {response_raw})\n')
     print(f'RECEIVING FROM {port.name} <<< "{response}" (RAW: {response_raw})\n')
     return response
