@@ -10,6 +10,11 @@
                               select 'Fertigstellen' or 'Finish'.
           You can now find two virtually connected, emulated serial ports in your system. 
           This mimics the data cable between the virtual device and your script during testing. 
+3. Run the virtual_bkp.py file in a separate terminal window. 
+          You are now able to communicate over port 'COM4' and 'COM14' as if they where real connected ports.
+          Debug: If your device has already ports 'COM4' or 'COM14' choose other ports. 
+          You have to change the called port within your script rs232_communication.py too. 
+          Also the virtual device is trying to open 'COM14', change this part of the script virtual_bkp.py too if necessary.
 TODO:
 write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
 (Run the tests with the command "python -m pytest")
