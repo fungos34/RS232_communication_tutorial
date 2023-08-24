@@ -11,7 +11,8 @@ def formatting_voltage(voltage):
 
 def convert_string_to_binary(string):
     """Converts a string to its ASCII binary format. Returns the binary string."""
-    pass
+    binary_string = string.encode('ascii')
+    return binary_string
 
 def set_current_command(current):
     """Takes an input current as a float or integer. Returns a valid binary command for BKP to set the current."""
@@ -47,11 +48,13 @@ def set_port(port_name = 'COM4'):
     :param port_name: port name as string. 
     :returns: the port object.
     """
-    pass
+    ser = serial.Serial(port_name)
+    return ser
 
 def send_command(port,command):
     """Sends command via RS232 to the BKP. 
-    Takes a port and a valid binary command as inputs. 
+    :param port: port object
+    :param command: and a valid binary command as inputs. 
     Returns the device response without any leading or tailing communication characters."""
     pass
 
