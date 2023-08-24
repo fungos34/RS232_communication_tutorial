@@ -12,7 +12,7 @@ Setup Environment:
                     unbox "Emulate Baudrate (optional)" if selected >
                               select 'Fertigstellen' or 'Finish'.
           You can now find two virtually connected, emulated serial ports in your system. 
-          This mimics the data cable between the virtual device and your script during testing. 
+          This mimics the data cable between the virtual device and your script during testing and during communication trials. 
 3. Run the virtual_bkp.py file in a separate terminal window. 
           You are now able to communicate over port 'COM4' with 'COM14' as if they where real connected ports.
           The virtual device listens to COM14 and responds according to 
