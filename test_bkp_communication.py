@@ -4,6 +4,14 @@ from solutions.sync_solution import set_port,get_current_command,get_status_comm
 import rs232_communication
 import time
 
+def test_formatting_current():
+    for i in [-12,1234.5678,123.4,0.0,100]:
+        assert rs232_communication.formatting_current(i) == formatting_current(i)
+
+def test_formatting_voltage():
+    for i in [-1,32,29,43.23,34343,3.3453]:
+        assert rs232_communication.formatting_voltage(i) == formatting_voltage(i)
+
 def test_set_current_command():
     for i in np.arange(0.5,999.9,50).reshape([len(np.arange(0.5,999.9,50)),1]):
         assert  rs232_communication.set_current_command(i) == set_current_command(i)
@@ -27,13 +35,6 @@ def test_set_output_off_command():
 def test_set_output_on_command():
     assert rs232_communication.set_output_on_command() == set_output_on_command()
 
-def test_formatting_current():
-    for i in [-12,1234.5678,123.4,0.0,100]:
-        assert rs232_communication.formatting_current(i) == formatting_current(i)
-
-def test_formatting_voltage():
-    for i in [-1,32,29,43.23,34343,3.3453]:
-        assert rs232_communication.formatting_voltage(i) == formatting_voltage(i)
 
 def test_convert_string_to_binary():
     for i in ['abc','\r','VOLT?\r', '\x13','hello world!']:
