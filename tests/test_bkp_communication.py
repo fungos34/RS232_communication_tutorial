@@ -50,8 +50,6 @@ def test_send_command():
     port = set_port()
     for i in ['CURR 100.2\r','CURR?\r','VOLT 23.99\r','VOLT?\r','OUT ON\r','STAT?\r','OUT OFF\r', 'STAT?\r']:
         aimed_response = send_command(port, i.encode('ascii'))
-        time.sleep(0.1)
         assert rs232_communication.send_command(port, i.encode('ascii')) == aimed_response
-
 
 # run with "python -m pytest"
