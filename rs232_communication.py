@@ -11,8 +11,7 @@ def formatting_voltage(voltage):
 
 def convert_string_to_binary(string):
     """Converts a string to its ASCII binary format. Returns the binary string."""
-    binary_string = string.encode('ascii')
-    return binary_string
+    pass
 
 def set_current_command(current):
     """Takes an input current as a float or integer. Returns a valid binary command for BKP to set the current."""
@@ -48,8 +47,7 @@ def set_port(port_name = 'COM4'):
     :param port_name: port name as string. 
     :returns: the port object.
     """
-    ser = serial.Serial(port_name)
-    return ser
+    pass
 
 def send_command(port,command):
     """Sends command via RS232 to the BKP. 
@@ -60,10 +58,12 @@ def send_command(port,command):
 
 def performance_quest(list_of_lists: list[list]) -> list:
     """Improve the performance of this function to pass the pytest."""
-    output = []
-    lst1= [1, 3, 5, 7, 9, 11]
-    lst2=[2, 4, 6, 8, 10, 12]
-    output = [(a, b) for a in lst1 for b in lst2]
+    # output = []
+    # lst1= [1, 3, 5, 7, 9, 11]
+    # lst2=[2, 4, 6, 8, 10, 12]
+    # output = [(a, b) for a in lst1 for b in lst2]
+    # return output
+    pass
 
 
 

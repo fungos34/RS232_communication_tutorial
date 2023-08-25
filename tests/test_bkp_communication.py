@@ -141,18 +141,17 @@ def read_in_function_as_string(file_name: str, function_name: str):
         return str( "'''" + string_modified + "'''" )
 
         
-                    
-
 def test_performance_quest():
-    t_list_of_lists = [[1,2,3],[3,4,5],[2,3,4,5,6,7]]
+    # t_list_of_lists = [[1,2,3],[3,4,5],[2,3,4,5,6,7]]
     t_code = read_in_function_as_string('rs232_communication.py','def performance_quest(')
     print(t_code)
     challenge_code = read_in_function_as_string('.\solutions\sync_solution.py','def performance_quest(')
     print(challenge_code)
-    t_performance = timeit.repeat(t_code, number=500000, repeat=3)
-    challenge_performance = timeit.repeat(challenge_code, number=500000, repeat=3)
+    t_performance = timeit.repeat(t_code, number=1000000, repeat=4)
+    challenge_performance = timeit.repeat(challenge_code, number=1000000, repeat=4)
     print(f"test performance: {t_performance}, challange performance: {challenge_performance}")
     assert np.mean(t_performance) < np.mean(challenge_performance)
+    assert rs232_communication.performance_quest() == performance_quest()
 
 
 # run with "python -m pytest"
