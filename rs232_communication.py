@@ -58,6 +58,16 @@ def send_command(port,command):
     Returns the device response without any leading or tailing communication characters."""
     pass
 
+def performance_quest(list_of_lists: list[list]) -> list:
+    """Improve the performance of this function to pass the pytest."""
+    output = []
+    lst1= [1, 3, 5, 7, 9, 11]
+    lst2=[2, 4, 6, 8, 10, 12]
+    output = [(a, b) for a in lst1 for b in lst2]
+
+
+
+
 
 if __name__ == '__main__':
     pass

@@ -1,6 +1,7 @@
 #SOLUTION FOR SYNCHRONOUS COMMUNICATION 
 import serial
 # from loguru import logger
+import timeit
 
 def formatting_current(value: int|float):
     """Formats a float current value to the format xxx.x according to BKP device manual. Returns the formatted number as a string."""
@@ -130,6 +131,15 @@ def send_command(port: serial.Serial, command):
     print(f'RECEIVING FROM {port.name} <<< "{response}" (RAW: {response_raw})\n')
     return response
 
+def performance_quest(list_of_lists: list[list]) -> list:
+    '''Improve the performance of this function to pass the pytest."""'''
+    output = []
+    lst1= [1, 3, 5, 7, 9, 11]
+    lst2=[2, 4, 6, 8, 10, 12]
+    for a in lst1:
+        for b in lst2:
+            output.append((a, b))
+    
 
 if __name__ == '__main__':
     port = set_port()

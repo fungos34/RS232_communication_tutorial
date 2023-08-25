@@ -1,9 +1,14 @@
 import pytest
 import numpy as np
-from solutions.sync_solution import set_port,get_current_command,get_status_command,get_voltage_command,set_current_command,set_output_off_command,set_output_on_command,set_voltage_command,formatting_current,formatting_voltage,convert_string_to_binary,send_command
+import sys
+sys.path.append("C:\\Users\\accou\\OneDrive\\Desktop\\RS232_communication_tutorial")
+
+from solutions.sync_solution import set_port,get_current_command,get_status_command,get_voltage_command,set_current_command,set_output_off_command,set_output_on_command,set_voltage_command,formatting_current,formatting_voltage,convert_string_to_binary,send_command,performance_quest
 import rs232_communication
 import time
 import serial
+import timeit
+
 
 def test_formatting_current():
     for i in [-12,1234.5678,123.4,0.0,100]:
@@ -52,4 +57,105 @@ def test_send_command():
         aimed_response = send_command(port, i.encode('ascii'))
         assert rs232_communication.send_command(port, i.encode('ascii')) == aimed_response
 
+def count_indentation_spaces(line: str) -> int:
+    spaces = 0
+    for i in range(len(line)):
+        if line[i] != ' ':
+            break
+        else:
+            spaces += 1
+    return int(spaces)
+
+def determine_first_nospace_character_in_line(line: str) -> str:
+    for i in range(len(line)):
+        if line[i] == ' ':
+            pass
+        else:
+            return line[i]
+        
+def remove_multiline_comments(text_with_potential_multiline_comments: str) -> str:
+    """Removes any multiline comment within the input string (either double or single quotes)."""
+    removing_start_index = None
+    removing_end_index = None
+    single = False
+    double = False
+    for i in range(len(text_with_potential_multiline_comments)):
+        character = text_with_potential_multiline_comments[i]
+        if single == False:
+            if character == '"':
+                next_character = text_with_potential_multiline_comments[i+1]
+                after_next_character = text_with_potential_multiline_comments[i+2]
+                if character == next_character and character == after_next_character:
+                    double = True
+                    if removing_start_index == None:
+                        removing_start_index = i
+                        continue
+                    else:
+                        removing_end_index = i+2
+                        continue
+        if double == False:
+            if character == "'":
+                next_character = text_with_potential_multiline_comments[i+1]
+                after_next_character = text_with_potential_multiline_comments[i+2]
+                if character == next_character and character == after_next_character:
+                    single = True
+                    if removing_start_index == None:
+                        removing_start_index = i
+                        continue
+                    else:
+                        removing_end_index = i+2
+                        continue
+        if removing_end_index != None and removing_start_index != None:
+            multiline_comment_list = [text_with_potential_multiline_comments[k] for k in range(len(text_with_potential_multiline_comments)) if removing_start_index <= k <= removing_end_index ]
+            while True:
+                remove_string = ''.join(multiline_comment_list)
+                print(f'The following multiline comment will be removed: {remove_string}')
+                improved_text = str(text_with_potential_multiline_comments).replace(remove_string,'')
+                return remove_multiline_comments(improved_text)
+    print(f'No multiline comment found.')
+    return text_with_potential_multiline_comments
+
+
+def read_in_function_as_string(file_name: str, function_name: str):
+    with open(file_name,'r') as file:
+        string_list = []
+        lines = file.readlines()
+        line_number = 0
+        starting_line = len(lines)
+        for line in lines:
+            line_number += 1
+            first_char = determine_first_nospace_character_in_line(line)
+            if first_char == '#':
+                continue
+            if function_name in line:
+                spaces1 = count_indentation_spaces(line)
+                starting_line = line_number
+            if starting_line < line_number:
+                spaces2 = count_indentation_spaces(line)
+                if spaces2 >= spaces1 + 4:
+                    string_list.append(line)
+                else:
+                    break
+        string_modified = remove_multiline_comments(''.join(string_list))
+        # return str( '"""' + string_modified + '"""' )
+        return str( "'''" + string_modified + "'''" )
+
+        
+                    
+
+def test_performance_quest():
+    t_list_of_lists = [[1,2,3],[3,4,5],[2,3,4,5,6,7]]
+    t_code = read_in_function_as_string('rs232_communication.py','def performance_quest(')
+    print(t_code)
+    challenge_code = read_in_function_as_string('.\solutions\sync_solution.py','def performance_quest(')
+    print(challenge_code)
+    t_performance = timeit.repeat(t_code, number=500000, repeat=3)
+    challenge_performance = timeit.repeat(challenge_code, number=500000, repeat=3)
+    print(f"test performance: {t_performance}, challange performance: {challenge_performance}")
+    assert np.mean(t_performance) < np.mean(challenge_performance)
+
+
 # run with "python -m pytest"
+
+if __name__ == '__main__':
+    test_performance_quest()
