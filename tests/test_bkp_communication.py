@@ -8,7 +8,8 @@ import rs232_communication
 import time
 import serial
 import timeit
-
+import asyncio
+import solutions.async_solution
 
 def test_formatting_current():
     for i in [-12,1234.5678,123.4,0.0,100]:
@@ -49,7 +50,11 @@ def test_set_port(port = 'COM4'):
     testing_port = serial.Serial(port)
     testing_port_type = type(testing_port)
     testing_port.close()
-    assert type(rs232_communication.set_port(port)) == testing_port_type
+    tutorial_port = rs232_communication.set_port(port)
+    tutorial_port_type = type(tutorial_port)
+    tutorial_port.close()
+    assert tutorial_port_type == testing_port_type
+
 
 def test_send_command():
     port = set_port()
@@ -109,10 +114,10 @@ def remove_multiline_comments(text_with_potential_multiline_comments: str) -> st
             multiline_comment_list = [text_with_potential_multiline_comments[k] for k in range(len(text_with_potential_multiline_comments)) if removing_start_index <= k <= removing_end_index ]
             while True:
                 remove_string = ''.join(multiline_comment_list)
-                print(f'The following multiline comment will be removed: {remove_string}')
+                # print(f'The following multiline comment will be removed: {remove_string}')
                 improved_text = str(text_with_potential_multiline_comments).replace(remove_string,'')
                 return remove_multiline_comments(improved_text)
-    print(f'No multiline comment found.')
+    # print(f'No multiline comment found.')
     return text_with_potential_multiline_comments
 
 
@@ -142,19 +147,27 @@ def read_in_function_as_string(file_name: str, function_name: str):
 
         
 def test_performance_quest():
-    # t_list_of_lists = [[1,2,3],[3,4,5],[2,3,4,5,6,7]]
-    t_code = read_in_function_as_string('rs232_communication.py','def performance_quest(')
-    print(t_code)
+    valid_command_1 = 'CURR 100.2\r'.encode('ascii')
+    valid_command_2 = 'CURR?\r'.encode('ascii')
+    valid_command_3 = 'VOLT 23.99\r'.encode('ascii')
+    port = serial.Serial('COM4')
+    
+    t_code = read_in_function_as_string('.\\rs232_communication.py','def performance_quest(')
     challenge_code = read_in_function_as_string('.\solutions\sync_solution.py','def performance_quest(')
-    print(challenge_code)
-    t_performance = timeit.repeat(t_code, number=1000000, repeat=4)
-    challenge_performance = timeit.repeat(challenge_code, number=1000000, repeat=4)
-    print(f"test performance: {t_performance}, challange performance: {challenge_performance}")
-    assert np.mean(t_performance) < np.mean(challenge_performance)
-    assert rs232_communication.performance_quest() == performance_quest()
 
+    t_performance = timeit.repeat(t_code, number=2000000, repeat=5)
+    challenge_performance = timeit.repeat(challenge_code, number=2000000, repeat=5)
+    print(f"test performance: {t_performance}\nchallange performance: {challenge_performance}")
+    print(f"test mean: {np.mean(t_performance)}\nchallange mean: {np.mean(challenge_performance)}")
+    discripancy = 100 - ((np.mean(t_performance)/ np.mean(challenge_performance)) * 100) 
+
+    assert rs232_communication.performance_quest(port,valid_command_1,valid_command_2,valid_command_3) == performance_quest(port,valid_command_1,valid_command_2,valid_command_3)#
+    assert discripancy >= 0
+    assert np.mean(t_performance) <= np.mean(challenge_performance)
+    
 
 # run with "python -m pytest"
 
 if __name__ == '__main__':
     test_performance_quest()
+    pass

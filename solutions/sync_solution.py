@@ -109,45 +109,49 @@ def send_command(port: serial.Serial, command):
     Returns the device response without any leading or tailing communication characters."""
     # logger.info(f'SENDING COMMAND TO {port.name} >>> {command}')
     print(f'SENDING COMMAND TO {port.name} >>> {command}')
-    port.write(command)#'CURR?'.encode('ascii'))#'STAT?'.encode('ascii'))
-    response_raw = bytearray()
-    while True:
-        response_byte = port.read(1)
-        if response_byte == b'\x13':
-            response_raw.extend(response_byte)
-            while True:
-                response_byte = port.read(1)
-                response_raw.extend(response_byte)
-                if response_byte == b'\x11':
-                    break
-            break
-    # formatting response.
-    stripped_response = response_raw.replace(b'\r',b'')
-    stripped_response = stripped_response.replace(b'\x13',b'')
-    stripped_response = stripped_response.replace(b'\x11',b'')
-    response = stripped_response.decode('ascii')
-
+    port.write(command)
+    response_raw =  port.read_until(b'\x11')
+    response = response_raw.decode('ascii').replace('\x11','').replace('\x13','').replace('\r','')
     # logger.info(f'RECEIVING FROM {port.name} <<< "{response}" (RAW: {response_raw})\n')
     print(f'RECEIVING FROM {port.name} <<< "{response}" (RAW: {response_raw})\n')
     return response
+    # ALTERNATIVE SOLUTION:
+    # port.write(command)#'CURR?'.encode('ascii'))#'STAT?'.encode('ascii'))
+    # response_raw = bytearray()
+    # while True:
+    #     response_byte = port.read(1)
+    #     if response_byte == b'\x13':
+    #         response_raw.extend(response_byte)
+    #         while True:
+    #             response_byte = port.read(1)
+    #             response_raw.extend(response_byte)
+    #             if response_byte == b'\x11':
+    #                 break
+    #         break
+    # # formatting response.
+    # stripped_response = response_raw.replace(b'\r',b'')
+    # stripped_response = stripped_response.replace(b'\x13',b'')
+    # stripped_response = stripped_response.replace(b'\x11',b'')
+    # response = stripped_response.decode('ascii')
 
-def performance_quest(list_of_lists: list[list]) -> list:
-    '''Improve the performance of this function to pass the pytest.'''
-    output = []
-    lst1= [1, 3, 5, 7, 9, 11]
-    lst2=[2, 4, 6, 8, 10, 12]
-    for a in lst1:
-        for b in lst2:
-            output.append((a, b))
-    return output
+   
+    # return response
     
 
+def performance_quest(port,valid_command_1,valid_command_2,valid_command_3):
+    '''Improve the performance of this function to pass the pytest.'''
+    response_1 = send_command(port,valid_command_1)
+    response_2 = send_command(port,valid_command_2)
+    response_3 = send_command(port,valid_command_3)
+    return [response_1,response_2,response_3]
+
 if __name__ == '__main__':
-    port = set_port()
-    send_command(port,set_current_command(234234.7876))
-    send_command(port,set_voltage_command(4.675))
-    send_command(port,get_current_command())
-    send_command(port,get_voltage_command())
-    send_command(port,get_status_command())
-    send_command(port,set_output_on_command())
-    send_command(port,get_status_command())
+    # port = set_port()
+    # send_command(port,set_current_command(234234.7876))
+    # send_command(port,set_voltage_command(4.675))
+    # send_command(port,get_current_command())
+    # send_command(port,get_voltage_command())
+    # send_command(port,get_status_command())
+    # send_command(port,set_output_on_command())
+    # send_command(port,get_status_command())
+    pass

@@ -1,5 +1,6 @@
 #FRAMEWORK WITH PREDEFINED FUNCTIONS FOR SYNCHRONOUS COMMUNICATION BKP.
 import serial
+import binascii
 
 def formatting_current(current):
     """Formats a float current value to the format xxx.x according to BKP device manual. Returns the formatted number as a string."""
@@ -47,24 +48,26 @@ def set_port(port_name = 'COM4'):
     :param port_name: port name as string. 
     :returns: the port object.
     """
-    pass
+    port = serial.Serial(port=port_name)
+    return port
 
 def send_command(port,command):
     """Sends command via RS232 to the BKP. 
     :param port: port object
     :param command: and a valid binary command as inputs. 
     Returns the device response without any leading or tailing communication characters."""
-    pass
+    port.write(command)
+    response =  port.read_until(b'\x11')
+    response = response.decode('ascii').replace('\x11','').replace('\x13','').replace('\r','')
+    return response
 
-def performance_quest(list_of_lists: list[list]) -> list:
+def performance_quest(port,valid_command_1,valid_command_2,valid_command_3):
     """Improve the performance of this function to pass the pytest."""
-    # output = []
-    # lst1= [1, 3, 5, 7, 9, 11]
-    # lst2=[2, 4, 6, 8, 10, 12]
-    # output = [(a, b) for a in lst1 for b in lst2]
-    # return output
-    pass
-
+    for _ in range(100):
+        response_1 = send_command(port,valid_command_1)
+        response_2 = send_command(port,valid_command_2)
+        response_3 = send_command(port,valid_command_3)
+    return [response_1,response_2,response_3]
 
 
 

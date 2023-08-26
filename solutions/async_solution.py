@@ -304,6 +304,7 @@ async def bkp_test_communication():
 			await bkp.close_port()
 			break
 
+
 # @error_handler(repititions=1)
 # @logging_handler
 async def main():
