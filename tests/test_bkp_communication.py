@@ -159,11 +159,22 @@ def test_performance_quest():
     challenge_performance = timeit.repeat(challenge_code, number=2000000, repeat=5)
     print(f"test performance: {t_performance}\nchallange performance: {challenge_performance}")
     print(f"test mean: {np.mean(t_performance)}\nchallange mean: {np.mean(challenge_performance)}")
-    discripancy = 100 - ((np.mean(t_performance)/ np.mean(challenge_performance)) * 100) 
+    performance_discripancy = 100 - ((np.mean(t_performance)/ np.mean(challenge_performance)) * 100) 
 
-    assert rs232_communication.performance_quest(port,valid_command_1,valid_command_2,valid_command_3) == performance_quest(port,valid_command_1,valid_command_2,valid_command_3)#
-    assert discripancy >= 0
-    assert np.mean(t_performance) <= np.mean(challenge_performance)
+    t1 = time.time()
+    t_return_value = rs232_communication.performance_quest(port,valid_command_1,valid_command_2,valid_command_3)
+    t2 = time.time()
+    t_duration = t2-t1
+
+    t1 = time.time()
+    challenge_return_value = performance_quest(port,valid_command_1,valid_command_2,valid_command_3)
+    t2 = time.time()
+    challenge_duration = t2-t1
+
+    assert t_duration < challenge_duration # overall duration.
+    # assert performance_discripancy >= 0 # runtime performence.
+    print(f'Performance discrepancy: {performance_discripancy}, test: {t_performance}, challenge: {challenge_performance}')
+    assert t_return_value == challenge_return_value # ensures that it communicated with the device.
     
 
 # run with "python -m pytest"

@@ -48,28 +48,21 @@ def set_port(port_name = 'COM4'):
     :param port_name: port name as string. 
     :returns: the port object.
     """
-    port = serial.Serial(port=port_name)
-    return port
+    pass
 
 def send_command(port,command):
     """Sends command via RS232 to the BKP. 
     :param port: port object
     :param command: and a valid binary command as inputs. 
     Returns the device response without any leading or tailing communication characters."""
-    port.write(command)
-    response =  port.read_until(b'\x11')
-    response = response.decode('ascii').replace('\x11','').replace('\x13','').replace('\r','')
-    return response
+    pass
 
 def performance_quest(port,valid_command_1,valid_command_2,valid_command_3):
     """Improve the performance of this function to pass the pytest."""
-    for _ in range(100):
-        response_1 = send_command(port,valid_command_1)
-        response_2 = send_command(port,valid_command_2)
-        response_3 = send_command(port,valid_command_3)
+    response_1 = send_command(port,valid_command_1)
+    response_2 = send_command(port,valid_command_2)
+    response_3 = send_command(port,valid_command_3)
     return [response_1,response_2,response_3]
-
-
 
 
 if __name__ == '__main__':
