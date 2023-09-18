@@ -1,5 +1,25 @@
 RS-232 communication tutorial on windows in Python 3.10.11:
 
+"""
+Why?
+
+Python is the ultimate tool for automation as an easy to learn higher level coding language. 
+This tutorial is meant to give some guidance for understanding the major concepts of serial communication with python.
+It is tuff to go through this tutorial without any coding knowledge, but anything is called impossible until someone has done it.
+
+RS-232 is the key for automating your production line, laboratory equipment, or CNC-machine. With knowledge about the communication via RS-232 you can easily coordinate and automate the boring stuff, collect data fully automated to even utilize modern python machine learning techniques (pyTorch, TensorFlow) and make most out of your data. Most of the present concepts also apply to any other network communication, therefore it opens many doors at once. 
+By following this tutorial you will be able to follow a learning-by-doing approach, since it provides you with all requirements to set up a virtual device at windows, which is communicating over a virtual RS-232 port, even if your computer does not have this kind of port.
+Therefore, feel free to play around a little bit to get familiar with automation.
+
+I highly encourage you to use the obtained knowledge from this tutorial to 
+- copy and modify the provided async/sync communication protocol to your needs for your devices.
+- write your own virtual representation of an arbitrary RS-232 device by analyzing the provided virtual device to work 100% remotely on your automation software while conducting real runs in your working place or to run testing runs.
+- copy the python code to a Raspberry Pi which is connected to your equipment and run your devices remotely (OPC-UA).
+- many, many more.
+
+So, let's get started!
+"""
+
 Setup Environment:
 1. download "32bit" 'Virtual Serial Ports Emulator (x32) 1.2.6.788'
           free download available here: https://eterlogic.com/Products.VSPE.html
@@ -27,8 +47,7 @@ Setup Environment:
 
 Problem Set:
           write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
-          (Run the tests with the command "python -m pytest" in your terminal)
-          run the pytest in terminal with the command "python -m pytest" to get detailed information about your progress.
+          Run the pytest in your terminal with the command "python -m pytest" to get detailed information about your progress.
 Extra Problem: write a function to monitor all values for voltage, current and status of the device over an arbitrary time.
 Extra Problem: wrap all your functionality in a self made class.
 Extra Problem: setup the communication via asynchronous communication (python module 'asyncio')
