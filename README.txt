@@ -3,11 +3,19 @@ RS-232 communication tutorial on windows in Python 3.10.11:
 """
 Why learn serial communication with Python?
 
-Python is an easy-to-learn, high-level coding language that is ideal for automation. This tutorial will teach you the fundamentals of serial communication with Python. While some coding knowledge is helpful, anyone can learn this material with perseverance.
+Python is an easy-to-learn, high-level coding language that is ideal for automation. 
+This tutorial will teach you the fundamentals of serial communication with Python. 
+While some coding knowledge is helpful, anyone can learn this material with perseverance.
 
-RS-232 is a key protocol for automating production lines, laboratory equipment, and CNC machines. With knowledge of RS-232 communication, you can easily coordinate and automate repetitive tasks, collect data automatically, and even use modern Python machine learning techniques (PyTorch, TensorFlow) to make the most of your data. Many of the concepts in this tutorial also apply to other network communication protocols, so learning RS-232 will open many doors for you.
+RS-232 is a key protocol for automating production lines, laboratory equipment, and CNC machines. 
+With knowledge of RS-232 communication, you can easily coordinate and automate repetitive tasks, collect data automatically, 
+and even use modern Python machine learning techniques (PyTorch, TensorFlow) to make the most of your data.
+Many of the concepts in this tutorial also apply to other network communication protocols, 
+so learning RS-232 will open many doors for you.
 
-This tutorial follows a learning-by-doing approach. It provides you with all the requirements to set up a virtual device on Windows that communicates over a virtual RS-232 port, even if your computer does not have a physical RS-232 port. Feel free to play around with the virtual device to get familiar with automation.
+This tutorial follows a learning-by-doing approach. It provides you with all the requirements to set up a virtual device on Windows 
+that communicates over a virtual RS-232 port, even if your computer does not have a physical RS-232 port. 
+Feel free to play around with the virtual device to get familiar with automation.
 
 I highly encourage you to use the knowledge gained from this tutorial to:
 
