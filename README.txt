@@ -7,13 +7,20 @@ Python is the ultimate tool for automation as an easy to learn higher level codi
 This tutorial is meant to give some guidance for understanding the major concepts of serial communication with python.
 It is tuff to go through this tutorial without any coding knowledge, but anything is called impossible until someone has done it.
 
-RS-232 is the key for automating your production line, laboratory equipment, or CNC-machine. With knowledge about the communication via RS-232 you can easily coordinate and automate the boring stuff, collect data fully automated to even utilize modern python machine learning techniques (pyTorch, TensorFlow) and make most out of your data. Most of the present concepts also apply to any other network communication, therefore it opens many doors at once. 
-By following this tutorial you will be able to follow a learning-by-doing approach, since it provides you with all requirements to set up a virtual device at windows, which is communicating over a virtual RS-232 port, even if your computer does not have this kind of port.
+RS-232 is the key for automating your production line, laboratory equipment, or CNC-machine. 
+With knowledge about the communication via RS-232 you can easily coordinate and automate the boring stuff, 
+collect data fully automated to even utilize modern python machine learning techniques (pyTorch, TensorFlow) 
+and make most out of your data. Most of the present concepts also apply to any other network communication, 
+therefore it opens many doors at once. 
+By following this tutorial you will be able to follow a learning-by-doing approach, 
+since it provides you with all requirements to set up a virtual device at windows, 
+which is communicating over a virtual RS-232 port, even if your computer does not have this kind of port.
 Therefore, feel free to play around a little bit to get familiar with automation.
 
 I highly encourage you to use the obtained knowledge from this tutorial to 
 - copy and modify the provided async/sync communication protocol to your needs for your devices.
-- write your own virtual representation of an arbitrary RS-232 device by analyzing the provided virtual device to work 100% remotely on your automation software while conducting real runs in your working place or to run testing runs.
+- write your own virtual representation of an arbitrary RS-232 device by analyzing the provided virtual device 
+  to work 100% remotely on your automation software while conducting real runs in your working place or to run testing runs.
 - copy the python code to a Raspberry Pi which is connected to your equipment and run your devices remotely (OPC-UA).
 - many, many more.
 
