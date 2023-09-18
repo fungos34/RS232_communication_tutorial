@@ -1,28 +1,22 @@
 RS-232 communication tutorial on windows in Python 3.10.11:
 
 """
-Why?
+Why learn serial communication with Python?
 
-Python is the ultimate tool for automation as an easy to learn higher level coding language. 
-This tutorial is meant to give some guidance for understanding the major concepts of serial communication with python.
-It is tuff to go through this tutorial without any coding knowledge, but anything is called impossible until someone has done it.
+Python is an easy-to-learn, high-level coding language that is ideal for automation. This tutorial will teach you the fundamentals of serial communication with Python. While some coding knowledge is helpful, anyone can learn this material with perseverance.
 
-RS-232 is the key for automating your production line, laboratory equipment, or CNC-machine. 
-With knowledge about the communication via RS-232 you can easily coordinate and automate the boring stuff, 
-collect data fully automated to even utilize modern python machine learning techniques (pyTorch, TensorFlow) 
-and make most out of your data. Most of the present concepts also apply to any other network communication, 
-therefore it opens many doors at once. 
-By following this tutorial you will be able to follow a learning-by-doing approach, 
-since it provides you with all requirements to set up a virtual device at windows, 
-which is communicating over a virtual RS-232 port, even if your computer does not have this kind of port.
-Therefore, feel free to play around a little bit to get familiar with automation.
+RS-232 is a key protocol for automating production lines, laboratory equipment, and CNC machines. With knowledge of RS-232 communication, you can easily coordinate and automate repetitive tasks, collect data automatically, and even use modern Python machine learning techniques (PyTorch, TensorFlow) to make the most of your data. Many of the concepts in this tutorial also apply to other network communication protocols, so learning RS-232 will open many doors for you.
 
-I highly encourage you to use the obtained knowledge from this tutorial to 
-- copy and modify the provided async/sync communication protocol to your needs for your devices.
-- write your own virtual representation of an arbitrary RS-232 device by analyzing the provided virtual device 
-  to work 100% remotely on your automation software while conducting real runs in your working place or to run testing runs.
-- copy the python code to a Raspberry Pi which is connected to your equipment and run your devices remotely (OPC-UA).
-- many, many more.
+This tutorial follows a learning-by-doing approach. It provides you with all the requirements to set up a virtual device on Windows that communicates over a virtual RS-232 port, even if your computer does not have a physical RS-232 port. Feel free to play around with the virtual device to get familiar with automation.
+
+I highly encourage you to use the knowledge gained from this tutorial to:
+
+- Copy and modify the provided async/sync communication protocol to your needs for your devices.
+- Write your own virtual representation of an arbitrary RS-232 device by analyzing the provided virtual device. 
+  This will allow you to work 100% remotely on your automation software while conducting real runs in your workplace 
+  or to run testing runs.
+- Copy the Python code to a Raspberry Pi that is connected to your equipment and run your devices remotely (OPC-UA).
+- And many more!
 
 So, let's get started!
 """
