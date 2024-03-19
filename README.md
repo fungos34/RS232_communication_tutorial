@@ -1,4 +1,4 @@
-# RS-232 communication tutorial on windows in Python 3.10.11:
+# RS-232 communication tutorial on windows in Python 3.10.11
 
 ## Why learn serial communication with Python?
 
@@ -27,7 +27,7 @@ Feel free to play around with the virtual device to get familiar with automation
 
 # So, let's get started!
 
-## Setup Environment:
+## Setup Environment
 1. download "32bit" 'Virtual Serial Ports Emulator (x32) 1.2.6.788'
           free download available here: https://eterlogic.com/Products.VSPE.html
           NOTE: The 64bit version is not for free, just use the 32 bit version.
@@ -45,19 +45,19 @@ Feel free to play around with the virtual device to get familiar with automation
                               select 'Fertigstellen' or 'Finish'.
           You can now find two virtually connected, emulated serial ports in your system. 
           This mimics the data cable between the virtual device and your script during testing and during communication trials. 
-3. Run the virtual_bkp.py file in a separate terminal window. 
+3. Run the virtual_bkp.py file in a separate terminal window
           You are now able to communicate over port 'COM4' with 'COM14' as if they where real connected ports.
           The virtual device listens to COM14 and responds according to a real devices documentation.
           Debug: If your device has already ports 'COM4' or 'COM14' choose other ports. 
           You have to change the called port within your script rs232_communication.py too. 
           Also the virtual device is trying to open 'COM14', change this part of the script virtual_bkp.py too if necessary.
 
-## Problem Set:
+## Problem Set
           write within bkp_communication.py all predefined functions to pass all the tests in test_bkp_communication.py. 
           Run the pytest in your terminal with the command "python -m pytest" to get detailed information about your progress.
-## Extra Problem 1: 
+## Extra Problem 1 
 write a function to monitor all values for voltage, current and status of the device over an arbitrary time.
-## Extra Problem 2: 
+## Extra Problem 2
 wrap all your functionality in a self made class.
-## Extra Problem 3: 
+## Extra Problem 3
 setup the communication via asynchronous communication (python module 'asyncio')
